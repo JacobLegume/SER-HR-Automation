@@ -23,15 +23,15 @@ Aplikacja webowa z obszaru HR-Tech automatyzująca wstępną analizę CV oraz pr
 ## Szybkie uruchomienie
 
 1. **Sklonuj repozytorium:**
-   git clone https://github.com/twoja-organizacja/SER-HR-Automation.git
-   cd SER-HR-Automation
+   * `git clone https://github.com/twoja-organizacja/SER-HR-Automation.git`
+   * `cd SER-HR-Automation`
 
 2. **Skonfiguruj zmienne środowiskowe:**
    Skopiuj plik `.env.example` i uzupełnij klucze API:
-   cp .env.example .env
+   * `cp .env.example .env`
 
 3. **Uruchom projekt za pomocą Docker Compose:**
-   docker-compose up --build
+   * `docker-compose up --build`
 
    * **API Backend:** http://localhost:8000
    * **Frontend:** http://localhost:3000
@@ -45,13 +45,12 @@ Wszyscy członkowie zespołu przestrzegają poniższych zasad pracy na Git:
 
 1. **Praca na dedykowanych branchach:**
    Nie commitujemy bezpośrednio do gałęzi `main`. Dla każdego zadania (Issue) tworzymy nową gałąź z `main`:
-   git checkout main && git pull
-   git checkout -b feature/US-01-nazwa-zadania
-   # lub: task/TASK-01-opis, bugfix/US-02-opis
+   * `git checkout main && git pull`
+   * `git checkout -b feature/US-01-nazwa-zadania`
 
 2. **Tworzenie Pull Requesta (PR):**
    Po wykonaniu i przetestowaniu zmian wysyłamy branch na GitHuba i otwieramy **Pull Request do gałęzi `main`**:
-   git push origin feature/US-01-nazwa-zadania
+   * `git push origin feature/US-01-nazwa-zadania`
 
 3. **Code Review & DoD:**
    * Każdy PR musi zostać zaakceptowany przez **co najmniej 1 osobę z zespołu** (Code Review) przed scaleniem.
