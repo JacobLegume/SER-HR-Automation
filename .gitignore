@@ -218,3 +218,57 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+
+# ==========================================
+# Frontend (Node.js / React)
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+build/
+dist/
+.next/
+
+# ==========================================
+# Pliki środowiskowe (Frontend)
+# ==========================================
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================================
+# IDE & Edytory
+# ==========================================
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==========================================
+# Systemowe & Przeglądarkowe
+# ==========================================
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Dane lokalne aplikacji (CV, Bazy Wektorowe, Bazy danych)
+# ==========================================
+# Przechowywanie pobranych/wgranych CV lokalnie
+/uploads/
+/media/
+/data/
+
+# Lokalna baza wektorowa ChromaDB
+chroma_db/
+.chroma/
+
+# Pliki Docker / Wolumeny lokalne
+*.tar
