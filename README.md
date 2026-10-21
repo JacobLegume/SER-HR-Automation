@@ -20,22 +20,20 @@ Aplikacja webowa z obszaru HR-Tech automatyzująca wstępną analizę CV oraz pr
 
 ---
 
-## Szybkie uruchomienie
+## Szybkie uruchomienie — lokalne demo frontendu
 
-1. **Sklonuj repozytorium:**
-   * `git clone https://github.com/twoja-organizacja/SER-HR-Automation.git`
-   * `cd SER-HR-Automation`
+Repozytorium zawiera lokalne demo procesu rekrutacji w React + Tailwind CSS: oferty, osobne widoki ról, zgłoszenia, fikcyjne briefingi, pytania, porównanie i notatki.
 
-2. **Skonfiguruj zmienne środowiskowe:**
-   Skopiuj plik `.env.example` i uzupełnij klucze API:
-   * `cp .env.example .env`
+```powershell
+git clone --branch feature/US-04-US-10-recruitment-demo https://github.com/JacobLegume/SER-HR-Automation.git
+cd SER-HR-Automation/frontend
+npm.cmd ci
+npm.cmd run dev
+```
 
-3. **Uruchom projekt za pomocą Docker Compose:**
-   * `docker-compose up --build`
+Wymagany Node.js 22.12+ z npm (zalecany Node 24 LTS). Otwórz adres z terminala, domyślnie http://localhost:3000. Jeśli repo już jest pobrane, pomiń klonowanie. Instrukcja VS Code, testów i przygotowania PR: [frontend/README.md](frontend/README.md).
 
-   * **API Backend:** http://localhost:8000
-   * **Frontend:** http://localhost:3000
-   * **Dokumentacja Swagger:** http://localhost:8000/docs
+Przed scaleniem demo pobieraj z powyższej gałęzi funkcjonalnej. [Instrukcja użytkowania](frontend/README.md), [etapy wykonane i następne kroki](docs/ETAPY.md), [scenariusz testowy](docs/DEMO-WORKFLOW.md). Demo zapisuje fikcyjne oferty i zgłoszenia tylko w przeglądarce. Nie wymaga `.env`, kluczy API ani Dockera. Backend, baza i integracja AI nie są jeszcze zaimplementowane. Uruchomienie pełnego systemu przez Docker Compose będzie dostępne po realizacji SER-02; obecnie brak pliku Compose.
 
 ---
 

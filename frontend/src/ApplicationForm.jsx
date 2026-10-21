@@ -1,0 +1,9 @@
+import { useState } from 'react'
+import { CANDIDATE_ID, validateFile } from './recruitment'
+export default function ApplicationForm({offer,onSubmit,alreadyApplied}) {
+  const [file,setFile]=useState(null),[error,setError]=useState('')
+  function choose(next){setFile(null);const problem=validateFile(next);setError(problem);if(!problem)setFile(next)}
+  function submit(e){e.preventDefault();const problem=validateFile(file);setError(problem);if(problem)return;const saved=onSubmit({id:crypto.randomUUID(),candidateId:CANDIDATE_ID,offerId:offer.id,offerTitle:offer.title,name:'Kandydat demo',fileName:file.name,fileSize:file.size,status:'nowa',processing:'w kolejce',sample:false,notes:'',questions:[],history:[],createdAt:new Date().toISOString()});if(!saved)setError('Nie udało się zapisać zgłoszenia. Sprawdź dostęp do pamięci przeglądarki i spróbuj ponownie.')}
+  if(alreadyApplied) return <p className="demo-banner">Zgłoszenie demo do tej oferty już istnieje. Zobacz „Moje zgłoszenia”.</p>
+  return <form onSubmit={submit}><h3>Aplikuj — lokalna symulacja</h3><p className="muted">Wybierz fikcyjny dokument. Plik nie jest wysyłany ani odczytywany; zapisujemy jedynie nazwę i rozmiar. Sprawdzenie rozszerzenia i rozmiaru nie zastępuje walidacji zawartości przez backend.</p><div className="upload-zone" onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();if(e.dataTransfer.files.length!==1){setFile(null);setError('Wybierz jeden dokument.');return}choose(e.dataTransfer.files[0])}}><label htmlFor="cv-file">Przeciągnij CV tutaj lub wybierz plik (PDF/DOCX, do 5 MiB)</label><input id="cv-file" type="file" accept=".pdf,.docx" onChange={e=>{choose(e.target.files[0]);e.target.value=''}}/>{file&&<p>{file.name} · {Math.ceil(file.size/1024)} KiB <button type="button" onClick={()=>setFile(null)}>Usuń wybrany plik</button></p>}</div><p className="error" role="alert">{error}</p><button className="primary" type="submit">Zapisz zgłoszenie demo</button></form>
+}
